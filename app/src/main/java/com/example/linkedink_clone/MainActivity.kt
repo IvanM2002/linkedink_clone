@@ -1,47 +1,68 @@
 package com.example.linkedink_clone
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.linkedink_clone.ui.theme.Linkedink_cloneTheme
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var llPosts: LinearLayout
+    private val postList = arrayListOf<Post>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Linkedink_cloneTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.activity_main)
+        initViews()
+        fillPostList()
+        addPostsToLL()
+    }
+
+    private fun fillPostList() {
+        for (i in 0 until 10) {
+            postList.add(Post("Username $i"))
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    private fun addPostsToLL() {
+        postList.forEach { post ->
+            /**
+             * When using LinearLayout, the inflated view needs a null root
+             *
+             * avoid doing this when inflating any other view
+             */
+            val postView = layoutInflater.inflate(R.layout.home_post, null)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Linkedink_cloneTheme {
-        Greeting("Android")
+            val tvUsername: TextView = postView.findViewById(R.id.tvUsername)
+            tvUsername.text = post.userName
+
+            /**
+             * showToast function can be called from our activity since AppCompactActivity
+             * extends from Context
+             *
+             * kotlin automatically understand the context of every class so it implicitly knows that
+             * showToast can be called here, it allows us to omit using this
+             */
+
+            val ibLike = postView.findViewById<ImageButton>(R.id.ibLike)
+            ibLike.setOnClickListener {
+                showToast("ibLike ${post.userName}")
+            }
+
+            /**
+             * Kotlin offers different ways to access objects and functions
+             */
+            postView.findViewById<ImageButton>(R.id.ibComment).setOnClickListener {
+                showToast("ibComment ${post.userName}", Toast.LENGTH_LONG)
+            }
+
+            llPosts.addView(postView)
+        }
+    }
+
+    private fun initViews() {
+        llPosts = findViewById(R.id.ll_posts)
     }
 }
