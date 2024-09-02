@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Linkedink_clone"
         tools:targetApi="31" >
         <activity
+            android:name=".rv_activity.RecyclerViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
