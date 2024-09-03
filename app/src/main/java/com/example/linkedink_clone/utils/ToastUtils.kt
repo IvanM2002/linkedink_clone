@@ -1,4 +1,4 @@
-package com.example.linkedink_clone
+package com.example.linkedink_clone.utils
 
 import android.content.Context
 import android.widget.Toast
