@@ -1,5 +1,6 @@
 package com.example.linkedink_clone.rv_activity.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.linkedink_clone.R
 import com.example.linkedink_clone.data.Post
 
-class RVAdapterPosts(private val posts: List<Post>) :
-    RecyclerView.Adapter<RVAdapterPosts.PostViewHolder>() {
+class RVAdapterPosts(private var posts: List<Post>) : RecyclerView.Adapter<RVAdapterPosts.PostViewHolder>() {
 
     class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvUserName: TextView = view.findViewById(R.id.tvUsername)
@@ -27,4 +27,9 @@ class RVAdapterPosts(private val posts: List<Post>) :
 
     override fun getItemCount(): Int = posts.size
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updatePosts(newPosts: List<Post>) {
+        posts = newPosts
+        notifyDataSetChanged()
+    }
 }

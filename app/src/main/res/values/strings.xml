@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">linkedink_clone</string>
+    <string name="rv_activity">RV Activity</string>
+    <string name="jorge">Jorge</string>
+    <string name="software_engineer_at_xyz_company">Software Engineer at XYZ Company</string>
+    <string name="this_is_an_example_of_a_linkedin_post_here_is_where_the_content_of_the_post_will_be_displayed">This is an example of a LinkedIn post. Here is where the content of the post will be displayed.</string>
+    <string name="recomendar">Recomendar</string>
+    <string name="compartir">Compartir</string>
+    <string name="comentar">Comentar</string>
+    <string name="enviar">Enviar</string>
 </resources>

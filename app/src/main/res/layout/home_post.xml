@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Jorge"
+        android:text="@string/jorge"
         android:textStyle="bold"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/ivProfilePicture"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Software Engineer at XYZ Company"
+        android:text="@string/software_engineer_at_xyz_company"
         android:textSize="12sp"
         android:textColor="#666666"
         app:layout_constraintStart_toEndOf="@id/ivProfilePicture"
@@ -57,7 +57,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="This is an example of a LinkedIn post. Here is where the content of the post will be displayed."
+        android:text="@string/this_is_an_example_of_a_linkedin_post_here_is_where_the_content_of_the_post_will_be_displayed"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,8 +105,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recomendar"
-                android:textSize="10sp" />
+                android:text="@string/recomendar"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,8 +129,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comentar"
-                android:textSize="10sp" />
+                android:text="@string/comentar"
+                android:textSize="10sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -151,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Compartir"
+                android:text="@string/compartir"
                 android:textSize="10sp" />
         </LinearLayout>
 
@@ -174,7 +175,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enviar"
+                android:text="@string/enviar"
                 android:textSize="10sp" />
         </LinearLayout>
 
